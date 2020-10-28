@@ -13,18 +13,17 @@ var enemyAttack = 12;
 
    // repeat and execute as long as the enemy-robot is alive
  
+   var fight = function(enemyName) {
 
-var fight = function(enemyName) {
-  while(enemyHealth > 0 && playerHealth > 0) {
-  
-
-  var promptFight = window.prompt("Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
+  var promptFight = window.prompt(" Would you like to FIGHT or SKIP this battle? Enter 'FIGHT' or 'SKIP' to choose.");
   if (promptFight === "fight" || promptFight === "FIGHT") {
 
+   while(enemyHealth > 0 && playerHealth > 0) {
+    
     // remove enemy's health by subtracting the amount set in the playerAttack variable
     enemyHealth = enemyHealth - playerAttack;
     console.log(
-      playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+      playerName + " attacked " + enemyName + " . " + enemyName + " now has " + enemyHealth + " health remaining."
     );
   
     // check enemy's health
@@ -32,13 +31,11 @@ var fight = function(enemyName) {
       window.alert(enemyName + " has died!");
       break;
     }
-    else {
+    // if the enemy-robot has health points, continue to fight
+    else (enemyHealth > 0); {
       window.alert(enemyName + " still has " + enemyHealth + " health left.");
     }
-    // if the enemy-robot has health points, continue to fight
-    if (enemyHealth > 0); {
-      window.alert(enemyName + " still has " + enemyHealth + " health left.");
-      }
+    
     // remove player's health by subtracting the amount set in the enemyAttack variable
   
     playerHealth = playerHealth - enemyAttack;
@@ -54,7 +51,7 @@ var fight = function(enemyName) {
     else {
       window.alert(playerName + " still has " + playerHealth + " health left.");
     }
-
+  
     // if player choses to skip
     if (promptFight === "skip" || promptFight === "SKIP") {
     // confirm player wants to skip
@@ -68,12 +65,13 @@ var fight = function(enemyName) {
      console.log("playerMoney", playerMoney);
      break;
     }
-}
+  }
+
       else {
         fight ();
       }
-
-    }
+   }
+    
   }
 }
 
