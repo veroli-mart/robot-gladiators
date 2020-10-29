@@ -34,6 +34,7 @@ var enemyAttack = 12;
     }
   }
 
+
 // remove enemy's health by subtracting the amount set in the playerAttack variable
     enemyHealth = enemyHealth - playerAttack;
   console.log(
@@ -50,26 +51,27 @@ var enemyAttack = 12;
     } else {
   window.alert(enemyName + " still has " + enemyHealth + " health left.");
 }
-
+    
 // remove player's health by subtracting the amount set in the enemyAttack variable
 
     playerHealth = playerHealth - enemyAttack;
   console.log(
     enemyName + " attacked " + playerName + " . " + playerName + " now has " + playerHealth + " health remaining."
-);
-
+);  
 // check player's health
     if (playerHealth <= 0) {
     window.alert(playerName + " has died!");
-    //leave while() loop if player is dead
-    break;
+    
   } else {
     window.alert(playerName + " still has " + playerHealth + " health left.");
     }
   }
 };
   
-
+var startGame = function() {
+  playerHealth = 100; 
+  playerAttack = 10;
+  playerMoney = 10;
  for(var i = 0; i < enemyNames.length; i++) {
     if (playerHealth > 0) {
        // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
@@ -79,23 +81,42 @@ var enemyAttack = 12;
 
     // reset enemyHealth before starting new fight
     enemyHealth = 50;
-
-    // use debugger to pause script from running and check what's going on at that moment in the code
-    // debugger;
-
     // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
     fight(pickedEnemyName);
-
-    } else {
+    }
+    else {
       window.alert(" You have lost your robot in battle! Game Over! ");
-      break;
+     break;
+    
     }
   }
-
+  endGame();
+ 
+};
+ 
+  var endGame = function() {
+    if (playerHealth > 0){
+    window.alert(" Great job, you've survived the game! You now have a score of " + playerMoney + " . ");
+    }
+else {
+     window.alert(" You've lost your robot in battle. ");
+    }
     
-     // call fight function with enemy-robot
-    //  fight ();
+var playAgainConfirm = window.confirm(" Would you like to play again? ");
+    if (playAgainConfirm) {
+      startGame();
+    }
+    else {
+      window.alert(" Thank you for playing Robot Gladiators! Come back soon! ");
+    }
+    startGame();
+  };
+  
+
+
+
+     
  
 
   
-//if no (false), ask question again by running fqight 
+
