@@ -70,7 +70,7 @@ var enemyAttack = 12;
 };
   
 
-    for(var i = 0; i < enemyNames.length; i++) {
+ for(var i = 0; i < enemyNames.length; i++) {
     if (playerHealth > 0) {
        // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
       window.alert("Welcome to Robot Gladiators! Round " + ( i + 1 ));
@@ -85,13 +85,13 @@ var enemyAttack = 12;
 
     // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
     fight(pickedEnemyName);
+
     } else {
       window.alert(" You have lost your robot in battle! Game Over! ");
       break;
     }
   }
-    playerHealth = playerHealth <= 0;
-    console.log(" You have lost your robot in battle! Game Over! ");
+
     
      // call fight function with enemy-robot
     //  fight ();
