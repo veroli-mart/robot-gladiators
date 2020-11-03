@@ -11,7 +11,7 @@ var value = Math.floor(Math.random() * (max -min + 1) + min);
 return value;
 };
 
-function getPlayerName() {
+var getPlayerName = function() {
   var name = "";
 
   while (name === "" || name === null) {
@@ -70,8 +70,7 @@ var enemyInfo = [
 }
 ];
 
-
-function fight(enemy) {
+var fight = function(enemy) {
 
   // var isPlayerTurn = true;
   // if (Math.random() > 0.5) {
@@ -148,7 +147,7 @@ startGame();
 
 
 //funtion to start a new game
-function startGame() {
+var startGame = function() {
 // reset player stats
 playerInfo.reset();
 
@@ -187,7 +186,7 @@ endGame();
 };
 
 
-function endGame(){
+var endGame = function(){
 //if player is still alive, player wins!
 if (playerInfo.health > 0) {
     window.alert("Great job, you've survived the game! You now have a score of " + playerInfo.money + ".");
@@ -206,7 +205,7 @@ if (playerInfo.health > 0) {
         window.alert("Thank you for playing Robot Gladiators! Come back soon!");
       }
 };
-function shop(){
+var shop = function() {
 //ask player what they would like to do
 var shopOptionPrompt = (window.prompt("Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? PLease enter 1 for REFILL, 2 for UPGRADE, or 3 for LEAVE."));
 
